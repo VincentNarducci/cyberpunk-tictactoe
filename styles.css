@@ -1,0 +1,173 @@
+*::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --square-size: 160px;
+    --tic-size: calc(var(--square-size) * .7);
+    --pink: #fd008a;
+    --blue: #5ce6ff;
+    --gray: #f2f2f2;
+    --grayhover: #000;
+    --dark: #222;
+    
+
+
+}
+
+h1 {
+    color: #fff;
+    position: relative;
+    z-index: 100000;
+    text-transform: uppercase;
+}
+
+
+
+body{
+    margin: 0;
+    font-family: 'Teko', sans-serif;
+    background: #000;
+    background-image: url(cyberpunk-bg.jpg);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+   
+   
+}
+
+
+
+.game {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    transition: 0.5sec;
+}
+
+.square {
+    width: var(--square-size);
+    height: var(--square-size);
+    border: 1px solid #fff;
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.square.x, .square.o {
+    cursor: not-allowed;
+}
+
+.square.x::before,
+.square.x::after {
+    background-color: var(--pink);
+    box-shadow: 0px 0px 10px var(--pink);
+}
+
+.square.o::before,
+.square.o::after {
+    background-color: var(--blue);
+    box-shadow: 0px 0px 10px var(--blue);
+}
+
+
+
+.game.x .square:not(.x):not(.o):hover::before,
+.game.x .square:not(.x):not(.o):hover::after,
+.game.o .square:not(.x):not(.o):hover::before,
+.game.o .square:not(.x):not(.o):hover::after {
+    background-color: var(--grayhover);
+}
+
+.square.x::before,
+.square.x::after,
+.game.x .square:not(.x):not(.o):hover::before,
+.game.x .square:not(.x):not(.o):hover::after {
+    content: '';
+    width: calc(var(--tic-size) * .15);
+    height: var(--tic-size);
+    position: absolute;
+}
+
+.square.x::before,
+.game.x .square:not(.x):not(.o):hover::before {
+    transform: rotate(45deg);
+}
+
+.square.x::after,
+.game.x .square:not(.x):not(.o):hover::after {
+    transform: rotate(-45deg);
+}
+
+.square.o::before,
+.square.o::after,
+.game.o .square:not(.x):not(.o):hover::before,
+.game.o .square:not(.x):not(.o):hover::after {
+    content: '';
+    width: var(--tic-size);
+    height: var(--tic-size);
+    position: absolute;
+}
+
+.square.o::before,
+.game.o .square:not(.x):not(.o):hover::before {
+    width: var(--tic-size);
+    height: var(--tic-size);
+    border-radius: 50%;
+
+}
+
+.square.o::after,
+.game.o .square:not(.x):not(.o):hover::after {
+    width: calc(var(--tic-size) * .7);
+    height: calc(var(--tic-size) * .7);
+    border-radius: 50%;
+    background-color: #000;
+}
+
+.turns {
+   text-align: center;
+    color: #fff;
+    font-size: 24px;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    z-index: 10000;
+}
+
+.messages {
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+    flex-direction: column;
+}
+
+.messages button {
+    font-size: 24px;
+    background-color: #000;
+    border: 1px solid #fff;
+    padding: 10px 80px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.messages button:hover {
+    background-color: #111;
+}
+
+.messages.show {
+    display: flex;
+}
+
+.disable {
+    display: none;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+    <title>Cyberpunk Tic Tac Toe</title>
+</head>
+<body>
+   <div class="container-fluid">
+       <div class="container">
+           <div class="row">
+               <div class="col text-center mt-4 pt-4">
+                   <h1>Tic Tac Toe</h1>
+               </div>
+           </div>
+            <div class="row">
+                <div class="col">
+                    <div class="game" id="game">
+                        <div class="square" data-square></div>
+                        <div class="square" data-square></div>
+                        <div class="square" data-square></div>
+                        <div class="square" data-square></div>
+                        <div class="square" data-square></div>
+                        <div class="square" data-square></div>
+                        <div class="square" data-square></div>
+                        <div class="square" data-square></div>
+                        <div class="square" data-square></div>
+                    </div>
+                    <div class="turns" id="turns">
+                        <div data-turn-message>It's X's turn to play</div>
+                    </div>
+                    <div class="messages mt-4" id="messages">
+                        <div data-win-message>X Wins!</div>
+                        <button id="reset">Play Again</button>
+                    </div>
+                </div>
+            </div>
+         </div>
+   </div>
+      
+        
+   <script src="node_modules/jquery/dist/jquery.js"></script>
+   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+   <script src="script.js"></script>
+</body>
+</html>
